@@ -6,7 +6,8 @@
   "unpkg": "dist/toasts.min.js",
   "jsdelivr": "dist/toasts.min.js",
   "scripts": {
-    "build": "mkdir -p dist && cp src/toasts.js dist/ && npx terser src/toasts.js -c -m -o dist/toasts.min.js"
+    "build": "mkdir -p dist && cp src/toasts.js dist/ && npx terser src/toasts.js -c -m -o dist/toasts.min.js",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "keywords": [
     "toast",
