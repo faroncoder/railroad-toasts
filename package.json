@@ -1,6 +1,6 @@
 {
   "name": "railroad-toasts",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Toast notifications and confirm dialogs for web applications. Built on Railroad Runtime philosophy.",
   "main": "dist/toasts.js",
   "unpkg": "dist/toasts.min.js",
