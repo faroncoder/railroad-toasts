@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Railroad Toasts - Basic Example</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+    h1 { color: #58a6ff; }
+    button {
+      background: #238636;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #2ea043; }
+    button.error { background: #da3633; }
+    button.error:hover { background: #e5534b; }
+    button.warn { background: #d29922; }
+    button.warn:hover { background: #e2a336; }
+    button.info { background: #1f6feb; }
+    button.info:hover { background: #388bfd; }
+    .section {
+      margin: 30px 0;
+      padding: 20px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+    }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>🚂 Railroad Toasts - Examples</h1>
+
+  <div class="section">
+    <h2>Basic Toasts</h2>
+    <button onclick="toast('Operation completed successfully!', 'success')">
+      Success Toast
+    </button>
+    <button class="error" onclick="toast('Something went wrong!', 'error')">
+      Error Toast
+    </button>
+    <button class="warn" onclick="toast('Please be careful!', 'warn')">
+      Warning Toast
+    </button>
+    <button class="info" onclick="toast('Just so you know...', 'info')">
+      Info Toast
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>Custom Duration</h2>
+    <button onclick="toast('Quick message', 'info', 1000)">
+      1 Second
+    </button>
+    <button onclick="toast('Stay longer', 'success', 8000)">
+      8 Seconds
+    </button>
+    <button onclick="toast('Click to dismiss', 'warn', 0)">
+      Never Auto-Dismiss
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>Confirm Dialogs</h2>
+    <button onclick="testConfirm()">
+      Basic Confirm
+    </button>
+    <button class="error" onclick="testDelete()">
+      Delete Confirm
+    </button>
+    <button onclick="testCustom()">
+      Custom Buttons
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>Replace alert()</h2>
+    <button onclick="alert('This shows as a toast!')">
+      Test alert()
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>Multiple Toasts</h2>
+    <button onclick="showMultiple()">
+      Show 5 Toasts
+    </button>
+  </div>
+
+  <!-- Load Railroad Toasts from local source -->
+  <script src="../src/toasts.js"></script>
+
+  <!-- Uncomment to load from CDN instead:
+  <script src="https://unpkg.com/railroad-toasts@1.0.0/dist/toasts.min.js"></script>
+  -->
+
+  <script>
+    function testConfirm() {
+      confirm('Are you sure you want to proceed?').then(result => {
+        if (result) {
+          toast('You clicked Confirm', 'success');
+        } else {
+          toast('You clicked Cancel', 'info');
+        }
+      });
+    }
+
+    function testDelete() {
+      confirm('Delete this item? This action cannot be undone.', {
+        confirmText: 'Delete',
+        cancelText: 'Keep'
+      }).then(result => {
+        if (result) {
+          toast('Item deleted', 'success');
+        } else {
+          toast('Deletion cancelled', 'info');
+        }
+      });
+    }
+
+    function testCustom() {
+      confirm('Deploy to production?', {
+        confirmText: 'Deploy Now',
+        cancelText: 'Not Yet'
+      }).then(result => {
+        if (result) {
+          toast('Deploying to production...', 'success');
+        } else {
+          toast('Deployment postponed', 'warn');
+        }
+      });
+    }
+
+    function showMultiple() {
+      toast('Toast #1', 'info');
+      setTimeout(() => toast('Toast #2', 'success'), 300);
+      setTimeout(() => toast('Toast #3', 'warn'), 600);
+      setTimeout(() => toast('Toast #4', 'error'), 900);
+      setTimeout(() => toast('Toast #5', 'info'), 1200);
+    }
+  </script>
+</body>
+</html>

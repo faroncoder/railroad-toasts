@@ -1,0 +1,43 @@
+{
+  "name": "railroad-toasts",
+  "version": "1.0.0",
+  "description": "Toast notifications and confirm dialogs for web applications. Built on Railroad Runtime philosophy.",
+  "main": "dist/toasts.js",
+  "unpkg": "dist/toasts.min.js",
+  "jsdelivr": "dist/toasts.min.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp src/toasts.js dist/ && npx terser src/toasts.js -c -m -o dist/toasts.min.js"
+  },
+  "keywords": [
+    "toast",
+    "notifications",
+    "alerts",
+    "confirm",
+    "dialog",
+    "htmx",
+    "ui",
+    "railroad",
+    "vanilla-js",
+    "zero-dependencies"
+  ],
+  "author": "Faron Coder",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faroncoder/railroad-toasts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/faroncoder/railroad-toasts/issues"
+  },
+  "homepage": "https://github.com/faroncoder/railroad-toasts#readme",
+  "devDependencies": {
+    "terser": "^5.16.0"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "examples/",
+    "README.md",
+    "LICENSE"
+  ]
+}
